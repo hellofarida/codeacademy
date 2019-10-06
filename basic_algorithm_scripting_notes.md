@@ -27,7 +27,7 @@ A factorial is the number of combinations possible with the numbers less or equa
 
 Another way you can express this is 3! = 6.
 
-This bring is back to why 0! = 1. There is only one combination possible with numbers less ro equal to this. 1! also equals 1.
+This brings us back to why 0! = 1. There is only one combination possible with numbers less or equal to this. 1! also equals 1.
 
 **Write a function to process factorials:**
 
