@@ -94,4 +94,84 @@ A friendly term called **Recursion**: A technique where a function is called wit
 
 ---
 
+## Confirm the Ending
+
+### Slice vs splice vs split
+
+**.slice(from, until)**
+* Copies part of an array and returns a new array
+* Does not create a new array
+* You choose which part of the array to slice *starting from index 0*
+* Can be used for arrays and strings
+
+        const phrase = "May the sauce be with you"
+
+        // "sauce be with you"
+        console.log(phrase.slice(8))
+
+* You choose which position to slice until
+
+        // "sauce"
+        console.log(phrase.slice(8,13))
+
+**.splice(index, number of elements, extra elements)**
+* Changes an array, by adding or removing elements from it
+* The first parameter will select which index to start with
+* The second parameter will select how many elements after the index to include
+
+        let array = ["May", "the", "sauce", "be", "with", "you"]
+
+        // "sauce be with you"
+        console.log(array.splice(2))
+
+        // "sauce"
+        console.log(array.splice(2,1))
+
+**.split(separator, limit)**
+* Only for strings
+* Splits a string into an array of sub strings
+* If you have an array you can use the .toString() method to turn your array into a string first
+* You can limit where the string stops with the second parameter
+
+        const string = "May the sauce be with you"
+
+        console.log(string.split(""))
+        // M,a,y, ,t,h,e, ,s,a,u,c,e, ,b,e, ,w,i,t,h, ,y,o,u
+
+**My Solution**
+
+    function confirmEnding(str, target) {
+      return str.slice(str.length - target.length) === target;
+    }
+
+*I cheated a bit becuase I forgot the difference between the above methods*
+
+---
+
+## Repeat a String Repeat a String
+
+**My Solution**
+
+    function repeatStringNumTimes(str, num) {
+      let newString = "";
+
+      while (num > 0) {
+        newString += str
+        num--
+      }
+
+      return newString
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
