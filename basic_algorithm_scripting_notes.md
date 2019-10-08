@@ -114,10 +114,10 @@ A friendly term called **Recursion**: A technique where a function is called wit
         // "sauce"
         console.log(phrase.slice(8,13))
 
-**.splice(index, number of elements, extra elements)**
+**.splice(index, deleteCount, extra elements)**
 * Changes an array, by adding or removing elements from it
 * The first parameter will select which index to start with
-* The second parameter will select how many elements after the index to include
+* The second parameter will select how many elements after the index to delete
 
         let array = ["May", "the", "sauce", "be", "with", "you"]
 
@@ -163,15 +163,102 @@ A friendly term called **Recursion**: A technique where a function is called wit
       return newString
     }
 
+---
+
+## Truncate a String
+
+**My solution**
+
+    function truncateString(str, num) {
+      let newString = str.slice(0, num)
+      if(num !== 3) {
+        return str.length <= num ? str : newString + '...'
+        } else {
+          return str
+        }
+    }
+
+**Their solution**
+
+    function truncateString(str, num) {
+      if (str.length <= num) {
+        return str;
+      } else {
+        return str.slice(0, num > 3 ? num - 3 : num) + '...';
+      }
+    }
+
+---
+
+## Finders Keepers
+
+* Return the first number in a given array that is true in the equation given in the second param
+
+**My solution**
+
+        function findElement(arr, func) {
+          let num = 0;
+
+          for(let i = 0;i < arr.length;i++) {
+            let num = arr[i]
+             if(func(num)) {
+               return num
+             }
+          }
+
+          return undefined
+        }
+
+---
+
+## Boo Hoo
+
+* Check to see if something is a Boolean Primitive or not
+* This one was tricky as 'false' is a boolean but returns as false, so you must check the typeof the param
+
+**My solution (same as their solution)**
+
+    function booWho(bool) {
+      return typeof bool === 'boolean'
+    }
+
+---
+
+## Title Case a Sentence
+
+* Take a string & downcase
+* Extract the first letter of each word and uppercase it
+
+**My solution**
+
+    function titleCase(str) {
+      let titleCaseArr = str.toLowerCase().split(" ")
+
+      return titleCaseArr.map(
+        function(phrase) {
+          return phrase.replace(phrase[0], phrase[0].toUpperCase())
+        }).join(' ')
+    }
 
 
+**Their solution**
 
+      function titleCase(str) {
+        return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
+      }
 
+## Slice and Splice
 
+**My Solution (based of their solution -- understanding of splice needed to be amedned)**
 
+    function frankenSplice(arr1, arr2, n) {
+      let baseArray = arr2.slice()
 
+      for(let i=0;i<arr1.length;i++) {
+        baseArray.splice(n, 0, arr1[i])
+        n++
+      }
 
+      return baseArray
 
-
-
-
+    }
