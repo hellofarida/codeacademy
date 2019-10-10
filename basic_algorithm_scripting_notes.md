@@ -262,3 +262,54 @@ A friendly term called **Recursion**: A technique where a function is called wit
       return baseArray
 
     }
+
+---
+
+## Falsy Bouncer
+
+* Filter out all falsy values in an array.
+* Falsy values in JavaScript are *false*, *null*, *0*, *""*, *undefined*, and *NaN*.
+
+**My Soltion**
+
+    function bouncer(arr) {
+
+      function isTruthy(value) {
+        return Boolean(value)
+      }
+
+      let onlyTruthys = arr.filter(isTruthy);
+      return onlyTruthys;
+    }
+
+**Their solution**
+
+    function bouncer(arr) {
+      return arr.filter(Boolean);
+    }
+
+* In using a true return in my own function I forgot the Boolean function was it's own method of returning true so you could do it in one line -- brain fart
+
+---
+
+## Where do I Belong
+
+**My Solution**
+
+    function getIndexToIns(arr, num) {
+      arr.push(num);
+      return arr.sort(function(a, b){return a-b}).indexOf(num)
+    }
+
+**Their solution**
+
+    function getIndexToIns(arr, num) {
+      return arr.concat(num).sort((a,b) => a-b).indexOf(num);
+    }
+
+
+### .concat()
+* Concat merges two or arrays and returns it as a whole new array
+* Allows the solution to be solved in one nifty line, as you need to return the amended array when using .push() (even though it doesn't read too well for human eyes)
+
+---
