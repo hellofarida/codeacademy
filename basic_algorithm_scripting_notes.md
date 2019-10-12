@@ -313,3 +313,39 @@ A friendly term called **Recursion**: A technique where a function is called wit
 * Allows the solution to be solved in one nifty line, as you need to return the amended array when using .push() (even though it doesn't read too well for human eyes)
 
 ---
+
+## Falsy bouncer
+* Compare to strings
+* If one contains another, return true
+* Otherwise return false
+
+***string1*.indexOf(*substring*)**
+* It compares the substring to the string
+* If the substring is contained within string1, it will return the index of where in string1 it is
+* If the substring is not contained within string1, it will retun *-1*
+
+
+**My solution**
+
+    function mutation(arr) {
+      let base = arr[0].toLowerCase().split('');
+      let compare = arr[1].toLowerCase().split('');
+
+      for (let i=0; i < compare.length; i++) {
+        if (base.indexOf(compare[i]) > 0) {
+          return false
+        };
+      }
+      return true
+    }
+
+**Their solution**
+
+    function mutation(arr) {
+      return arr[1].toLowerCase()
+        .split('')
+        .every(function(letter) {
+          return arr[0].toLowerCase()
+            .indexOf(letter) != -1;
+        });
+    }
