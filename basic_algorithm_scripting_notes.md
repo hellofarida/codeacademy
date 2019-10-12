@@ -332,7 +332,7 @@ A friendly term called **Recursion**: A technique where a function is called wit
       let compare = arr[1].toLowerCase().split('');
 
       for (let i=0; i < compare.length; i++) {
-        if (base.indexOf(compare[i]) > 0) {
+        if (base.indexOf(compare[i]) < 0) {
           return false
         };
       }
