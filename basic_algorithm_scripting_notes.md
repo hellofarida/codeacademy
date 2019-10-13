@@ -322,7 +322,7 @@ A friendly term called **Recursion**: A technique where a function is called wit
 ***string1*.indexOf(*substring*)**
 * It compares the substring to the string
 * If the substring is contained within string1, it will return the index of where in string1 it is
-* If the substring is not contained within string1, it will retun *-1*
+* If the substring is not contained within string1, it will return *-1*
 
 
 **My solution**
@@ -348,4 +348,30 @@ A friendly term called **Recursion**: A technique where a function is called wit
           return arr[0].toLowerCase()
             .indexOf(letter) != -1;
         });
+    }
+
+---
+
+## Chunky Monkey
+
+**My solution**
+
+    function chunkArrayInGroups(arr, size) {
+      let newArr = []
+      let i = 0
+      while (i < arr.length) {
+        newArr.push(arr.slice(i,i+size))
+        i+=size
+      }
+      return newArr
+    }
+
+**Their solution**
+
+    function chunkArrayInGroups(arr, size) {
+      var newArr = [];
+      while (arr.length) {
+        newArr.push(arr.splice(0,size));
+      }
+      return newArr;
     }
